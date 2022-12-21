@@ -85,7 +85,7 @@ fi
 
 if ${has_download}
 then
-cp ${DOWNLOADS_DIR}/models/* ../ObjectDetection/TFLite
+cp ${DOWNLOADS_DIR}/models/* ../assets/tfLite
 rm -rf ${DOWNLOADS_DIR}
 fi
 

@@ -8,8 +8,8 @@ import 'dart:math' as math;
 import 'package:object_detection/camera.dart';
 import 'package:object_detection/bindbox.dart';
 
-const String ssd = "Get started";
-// const String yolo = "Tiny YOLOv2";
+const String ssd = "SSD MobileNet";
+const String yolo = "Tiny YOLOv2";
 
 class HomePage extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -34,6 +34,7 @@ class _HomePageState extends State<HomePage> {
   _loadModel() async {
     String? res;
     res = await Tflite.loadModel(
+        // model: "assets/tfLite/efficientdet_lite0.tflite",
         model: "assets/ssd_mobilenet.tflite",
         labels: "assets/ssd_mobilenet.txt");
 
@@ -91,14 +92,18 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onPressed: () => _onSelect(ssd),
                   ),
-                  // MaterialButton(
-                  //   color: Colors.blueAccent,
-                  //   child: const Text(
-                  //     yolo,
-                  //     style: TextStyle(color: Colors.black),
-                  //   ),
-                  //   onPressed: () => _onSelect(yolo),
-                  // ),
+                  MaterialButton(
+                    color: Colors.blueAccent,
+                    child: const Text(
+                      yolo,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    onPressed: () => _onSelect(yolo),
+                  ),
                 ],
               ),
             )
