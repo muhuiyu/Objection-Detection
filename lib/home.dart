@@ -8,8 +8,8 @@ import 'dart:math' as math;
 import 'package:object_detection/camera.dart';
 import 'package:object_detection/bindbox.dart';
 
-const String ssd = "SSD MobileNet";
-const String yolo = "Tiny YOLOv2";
+const String ssd = "Get started";
+// const String yolo = "Tiny YOLOv2";
 
 class HomePage extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
     Size screen = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.blueAccent,
         leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
@@ -70,6 +70,7 @@ class _HomePageState extends State<HomePage> {
                 _model = "";
               });
             }),
+        title: Text("Object detection"),
       ),
       backgroundColor: Colors.white,
       body: _model == ""
@@ -78,21 +79,26 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   MaterialButton(
-                    color: Colors.teal,
+                    padding: const EdgeInsets.all(20),
+                    color: Colors.blueAccent,
                     child: const Text(
                       ssd,
-                      style: TextStyle(color: Colors.black),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     onPressed: () => _onSelect(ssd),
                   ),
-                  MaterialButton(
-                    color: Colors.teal,
-                    child: const Text(
-                      yolo,
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    onPressed: () => _onSelect(yolo),
-                  ),
+                  // MaterialButton(
+                  //   color: Colors.blueAccent,
+                  //   child: const Text(
+                  //     yolo,
+                  //     style: TextStyle(color: Colors.black),
+                  //   ),
+                  //   onPressed: () => _onSelect(yolo),
+                  // ),
                 ],
               ),
             )
